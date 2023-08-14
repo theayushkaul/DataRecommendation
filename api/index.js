@@ -1,11 +1,21 @@
 const express = require('express');
+const app = express();
+
 const path = require('path');
 const multer = require('multer');
-
-const app = express();
-const port = 5000;
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+dotenv.config();
 
 app.use(express.json());
+
+// Connecting to the database
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
 
 // Serve static files from the "dataset" directory
 app.use('/dataset', express.static(path.join(__dirname, 'dataset')));
@@ -26,7 +36,11 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   console.log('File uploaded:', req.file.originalname);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Login,Register and Updation of User is taken care of
+app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+
+app.listen(5000, () => {
+  console.log(`Server is running on port 5000`);
 });
 

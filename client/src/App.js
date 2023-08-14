@@ -1,33 +1,26 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-
+import Navbar from "./Components/Navbar";
+import HomePage from "./Pages/HomePage";
+import RegisterPage from "./Pages/RegisterPage"
+import LoginPage from "./Pages/LoginPage"
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 function App() {
-  const [file, setFile] = useState(null);
-
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
-  const uploadFile = async () => {
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      try {
-        await axios.post("/upload", data);
-        console.log("Uploaded Successfully")
-      } catch (err) {console.log(err)}
-    }
-  };
-
+  const user = false;
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={uploadFile}>Upload</button>
+      <BrowserRouter>
+        <Navbar user = {user}/>
+        <Routes>
+        <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/login" element={user ? <HomePage/>:<LoginPage />} />
+          <Route exact path="/register" element={user ? <HomePage/>:<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
-
