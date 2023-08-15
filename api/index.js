@@ -6,7 +6,7 @@ const multer = require('multer');
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
-const userRoute = require("./routes/users");
+const userRoute = require("./routes/user");
 dotenv.config();
 
 app.use(express.json());
@@ -36,7 +36,6 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   console.log('File uploaded:', req.file.originalname);
 });
 
-// Login,Register and Updation of User is taken care of
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 

@@ -17,7 +17,7 @@ function UploadExcel() {
       try {
         await axios.post("/upload", data);
         console.log("Uploaded Successfully")
-      } catch (err) {console.log(err)}
+      } catch (err) {console.log("Cannot upload the file")}
     }
   };
 
