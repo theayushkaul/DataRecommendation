@@ -33,7 +33,8 @@ body('password', 'Password cannot be blank').exists()], fetchUser, async (req, r
 router.delete('/delete/:userId', fetchUser, async (req, res) => {
     try {
         const userId = req.params.userId;
-        if (userId !== req.user._id) {
+        console.log(res.user.id)
+        if (userId !== res.user.id) {
             return res.status(403).json({ message: 'Access denied.' });
         }
         await User.findByIdAndDelete(userId);
