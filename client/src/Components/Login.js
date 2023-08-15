@@ -23,9 +23,8 @@ const Login = () => {
     };
 
     return (
-        <div className='bg-[#a9ca96] h-[100vh]'>
-            <div className="flex mt-[10%] justify-center align-center  outfit">
-                <div className="bg-white w-10/12 md:w-2/5 p-6  rounded-xl">
+            <div className="flex justify-center outfit bg-[#E0ECC4] h-[87vh] items-center">
+                <div className="bg-white w-10/12 md:w-2/5 p-6 rounded-xl">
                     <span className="text-4xl">Login</span>
                     <form className="flex flex-col mt-6"  onSubmit={(e) => { handleSubmit(e) }}>
                         <label>Email</label>
@@ -37,7 +36,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-        </div>)
+)
 }
 
 export default Login

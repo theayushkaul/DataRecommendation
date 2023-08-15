@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@900&family=Atkinson+Hyperlegible&family=Goblin+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,4 +22,16 @@ code {
 }
 .poppins{
   font-family: 'Poppins', sans-serif;
+}
+.atiFont{
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+.goblin{
+  font-family: 'Goblin One', cursive;
+}
+.elsie{
+  font-family: 'Elsie', cursive;
+}
+.martianm{
+  font-family: 'Martian Mono', monospace;
 }

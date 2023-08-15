@@ -21,8 +21,7 @@ const Register = () => {
         }
       };
     return (
-        <div className='bg-[#a9ca96] h-[100vh]'>
-            <div className="flex justify-center bg-[#a9ca96] items-center outfit">
+            <div className="flex justify-center bg-[#E0ECC4] h-[87vh] items-center outfit">
                 <div className="bg-white w-10/12 md:w-2/5 p-6 rounded-xl">
                     <span className="text-4xl">Register</span>
                     <form className="flex flex-col mt-6" onSubmit={(e)=>{handleSubmit(e)}}>
@@ -37,7 +36,6 @@ const Register = () => {
                     </form>
                 </div>
             </div>
-        </div>
     );
 
 }
