@@ -1,26 +1,25 @@
-import Navbar from "./Components/Navbar";
-import HomePage from "./Pages/HomePage";
-import RegisterPage from "./Pages/RegisterPage"
-import LoginPage from "./Pages/LoginPage"
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
-function App() {
-  const user = false;
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Components/Home';
+import Navbar from './Components/Navbar';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import Prediction from './Components/Prediction';
+
+
+const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Navbar user = {user}/>
-        <Routes>
-        <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/login" element={user ? <HomePage/>:<LoginPage />} />
-          <Route exact path="/register" element={user ? <HomePage/>:<RegisterPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/Login" exact element={<Login />} />
+        <Route path="/Register" exact element={<Register />} />
+        <Route path="/Prediction" exact element={<Prediction />} />
+      </Routes>
+
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
+
