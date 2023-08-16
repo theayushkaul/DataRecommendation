@@ -42,10 +42,10 @@ export default function Navbar() {
           <div className="absolute z-10 top-20 right-20 bg-[#E0ECC4] shadow-xl rounded-lg">
             <div className='py-4 px-4 w-48 flex flex-col gap-5 items-start'>
               <div className="poppins cursor-pointer">
-                <Link to="/profile">Edit Profile</Link>
+                <Link to="/profile" onClick={toggleSidebar}>Edit Profile</Link>
               </div>
               <div className="poppins cursor-pointer">
-                <Link to="/uploadExcel">Upload Data</Link>
+                <Link to="/uploadExcel" onClick={toggleSidebar}>Upload Data</Link>
               </div>
               <button className="outfit bg-red-400 text-white rounded-lg px-4 hover:bg-red-600 w-full" onClick={handleLogout}>
                 Log Out
