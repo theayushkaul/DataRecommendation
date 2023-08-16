@@ -1,5 +1,4 @@
 import React from 'react'
-// import Upload from './Upload'
 import stock from '../Assets/stock.png'
 import stock2 from '../Assets/stock2.png'
 import visualize from '../Assets/visualize.png'
