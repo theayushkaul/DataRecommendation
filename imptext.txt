@@ -1,0 +1,7 @@
+cd api and cd client -> npm install
+Provide with jwt const and MONGO_URL in .env file
+
+To get the dataset from the backend to the frontend
+
+const PF = "http://localhost:5000/dataSet/"
+PF+user.dataSet

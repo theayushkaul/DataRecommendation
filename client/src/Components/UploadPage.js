@@ -27,7 +27,6 @@ function UploadPage() {
       };
       reader.readAsArrayBuffer(selectedFile);
     } catch (error) {
-      console.log(error);
     }
   };
 

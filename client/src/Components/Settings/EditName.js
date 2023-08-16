@@ -24,7 +24,6 @@ export default function EditName() {
 
         try {
             const res = await axios.put(`/user/update/${user._id}`, { name }, config);
-            console.log(res);
             dispatch({ type: "UPDATE_SUCCESS", payload: { user: res.data } });
             closeModal();
         } catch (err) {
