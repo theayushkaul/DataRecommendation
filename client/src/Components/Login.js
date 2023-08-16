@@ -15,7 +15,6 @@ const Login = () => {
                 password: passwordRef.current.value,
             });
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-            // console.log("Login was successful")
         } catch (err) {
             setError(true);
             dispatch({ type: "LOGIN_FAILURE" });

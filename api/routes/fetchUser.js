@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const dotenv = require("dotenv");
 dotenv.config();
 const fetchUser = (req, res, next) => {
-    const token = req.header('auth-token')
+    const token = req.header('authToken')
     if (!token) {
         res.status(401).send({ error: "Please authenticate using a valid token" })
     }

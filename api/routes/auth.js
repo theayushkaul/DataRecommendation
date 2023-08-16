@@ -55,7 +55,7 @@ body('password', 'Password cannot be blank').exists()], async (req, res) => {
             }
         }
         const authToken = jwt.sign(data, process.env.JWT_CONST)
-        res.status(200).json({ authToken })
+        res.status(200).json({ authToken,user })
     } catch (err) {
         res.status(500).json("Internal Server Error");
     }

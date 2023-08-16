@@ -15,16 +15,19 @@ body('password', 'Password cannot be blank').exists()], fetchUser, async (req, r
         }
         if (name) {
             user.name = name;
+            console.log("name updated")
         }
         if (email) {
             user.email = email;
+            console.log("email updated")
         }
         if (password) {
             const hashedPassword = await bcrypt.hash(password, 10);
             user.password = hashedPassword;
+            console.log("password updated")
         }
         await user.save();
-        res.status(200).json({ message: 'User details updated successfully' });
+        res.status(200).json(user);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' });
     }
@@ -44,10 +47,10 @@ router.delete('/delete/:userId', fetchUser, async (req, res) => {
     }
 });
 // Getting the User
-router.post('/:id',fetchUser,async(req,res)=>{
+router.get('/:id',fetchUser,async(req,res)=>{
     try{
-        const userId = req.user.id;
-        const user = await User.findById(userId).select("password")
+        const userId = res.user.id;
+        const user = await User.findById(userId)
         res.status(200).send(user)
     } catch (err) { res.status(500).send("Internal Server Error") }
 })

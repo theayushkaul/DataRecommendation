@@ -7,7 +7,8 @@ import Register from './Components/Register';
 import Prediction from './Components/Prediction';
 import { useContext } from "react";
 import { Context } from "./Context/context";
-import Profile from './Components/Profile';
+import Profile from './Components/Settings/Profile';
+import UploadPage from './Components/UploadPage';
 const App = () => {
   const {user} = useContext(Context)
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/register" exact element={user ? <Home /> : <Register />} />
         <Route path="/prediction" exact element={user ? <Prediction /> : <Login />} />
         <Route path="/profile" exact element={user ? <Profile/> : <Login />} />
+        <Route path="/uploadExcel" exact element={user ? <UploadPage/> : <Login />} />
       </Routes>
 
     </BrowserRouter>

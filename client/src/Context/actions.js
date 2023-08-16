@@ -1,29 +1,29 @@
-export const LoginStart = (userCredentials) => ({
-    type: "LOGIN_START",
+export const loginStart = () => ({
+  type: "LOGIN_START",
 });
-  
-export const LoginSuccess = (user) => ({
-    type: "LOGIN_SUCCESS",
-    payload: user,
+
+export const loginSuccess = (user, authToken) => ({
+  type: "LOGIN_SUCCESS",
+  payload: { user, authToken },
 });
-  
-export const LoginFailure = () => ({
+
+export const loginFailure = () => ({
   type: "LOGIN_FAILURE",
 });
-  
-export const Logout = () => ({
-  type: "LOGOUT",
-});
-  
-export const UpdateStart = (userCredentials) => ({
+
+export const updateStart = () => ({
   type: "UPDATE_START",
 });
-  
-export const UpdateSuccess = (user) => ({
+
+export const updateSuccess = (user) => ({
   type: "UPDATE_SUCCESS",
-  payload: user,
+  payload: { user },
 });
-  
-export const UpdateFailure = () => ({
+
+export const updateFailure = () => ({
   type: "UPDATE_FAILURE",
+});
+
+export const logout = () => ({
+  type: "LOGOUT",
 });
