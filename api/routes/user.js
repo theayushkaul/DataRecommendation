@@ -23,7 +23,7 @@ body('password', 'Password cannot be blank').exists()], fetchUser, async (req, r
             const hashedPassword = await bcrypt.hash(password, 10);
             user.password = hashedPassword;
         }
-        if(dataSet !== user.dataSet){
+        if(dataSet && dataSet !== user.dataSet){
             user.dataSet = dataSet;
         }
         await user.save();
