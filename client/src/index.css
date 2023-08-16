@@ -1,8 +1,5 @@
 @tailwind base;
 @tailwind components;
-<<<<<<< HEAD
-@tailwind utilities;
-=======
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Elsie:wght@900&family=Atkinson+Hyperlegible&family=Goblin+One&display=swap');
@@ -38,4 +35,3 @@ code {
 .martianm{
   font-family: 'Martian Mono', monospace;
 }
->>>>>>> 4d0b9a692084253cb6b75fc986ee705f1f488e87

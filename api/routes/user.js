@@ -8,24 +8,25 @@ router.put('/update/:userId', [body('email', 'Enter a valid email').isEmail(),
 body('password', 'Password cannot be blank').exists()], fetchUser, async (req, res) => {
     try {
         const userId = req.params.userId;
-        const { name, email, password } = req.body;
+        const { name, email, password, dataSet } = req.body;
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
         if (name) {
             user.name = name;
-            console.log("name updated")
         }
         if (email) {
             user.email = email;
-            console.log("email updated")
         }
         if (password) {
             const hashedPassword = await bcrypt.hash(password, 10);
             user.password = hashedPassword;
-            console.log("password updated")
         }
+        if (dataSet && dataSet !== user.dataSet) {
+            user.dataSet = dataSet;
+        }
+
         await user.save();
         res.status(200).json(user);
     } catch (error) {
@@ -47,8 +48,8 @@ router.delete('/delete/:userId', fetchUser, async (req, res) => {
     }
 });
 // Getting the User
-router.get('/:id',fetchUser,async(req,res)=>{
-    try{
+router.get('/:id', fetchUser, async (req, res) => {
+    try {
         const userId = res.user.id;
         const user = await User.findById(userId)
         res.status(200).send(user)
