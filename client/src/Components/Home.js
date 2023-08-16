@@ -51,7 +51,7 @@ const Home = () => {
         </div>
       </div>
       <div className='flex flex-row mx-[25%] w-[55vw]'>
-        <div className='flex flex-col  mt-[50px] w-[28vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
+      <div className='flex flex-col  mt-[50px] w-[28vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
           <div className='flex flex-col p-4'>
             <span className='text-[28px] font-medium goblin'>Manage</span>
             <span className='text-[12px] atiFont'>Take control of Restolking</span>
@@ -60,7 +60,7 @@ const Home = () => {
             <img src={manage} className='w-[380px] h-[220px] rounded-[10px]' alt="" />
           </div>
         </div>
-        <Link to="/Prediction"><div className='flex flex-col ml-2 mt-[50px]  w-[28vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
+        <Link to="/prediction"><div className='flex flex-col ml-2 mt-[50px]  w-[28vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
           <div className='flex flex-col p-4'>
             <span className='text-[28px] font-medium goblin'>Predict</span>
             <span className='text-[12px] atiFont'>Be proactive, drive success</span>

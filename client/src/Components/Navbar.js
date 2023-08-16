@@ -44,6 +44,9 @@ export default function Navbar() {
               <div className="poppins cursor-pointer">
                 <Link to="/profile">Edit Profile</Link>
               </div>
+              <div className="poppins cursor-pointer">
+                <Link to="/uploadExcel">Upload Data</Link>
+              </div>
               <button className="outfit bg-red-400 text-white rounded-lg px-4 hover:bg-red-600 w-full" onClick={handleLogout}>
                 Log Out
               </button>

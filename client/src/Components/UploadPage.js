@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react'
 import Dropzone from 'react-dropzone';
 import { read, utils } from 'xlsx'; // Import necessary functions and objects from xlsx
 import axios from 'axios';
-
+import { Context } from "../Context/context";
 function UploadPage() {
   const [file, setFile] = useState(null);
   const [fileData, setFileData] = useState([]);
   const [uploadStatus, setUploadStatus] = useState('');
+  const { user, dispatch, authToken } = useContext(Context);
 
   const handleFileDrop = async (acceptedFiles) => {
     const selectedFile = acceptedFiles[0];
@@ -24,24 +25,30 @@ function UploadPage() {
       };
       reader.readAsArrayBuffer(selectedFile);
     } catch (error) {
-      console.log(error);
     }
   };
 
   const uploadFile = async () => {
     if (file) {
+      dispatch({ type: "UPDATE_START" });
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append('name', filename);
       data.append('file', file);
-
+      const config = {
+        headers: {
+          authToken: authToken,
+        },
+      };
       try {
         setUploadStatus('Uploading...');
         await axios.post('/upload', data);
+        const res = await axios.put(`/user/update/${user._id}`, { dataSet: filename }, config);
+        dispatch({ type: "UPDATE_SUCCESS", payload: { user: res.data } });
         setUploadStatus('Uploaded Successfully');
       } catch (error) {
         setUploadStatus('Upload Failed');
-        console.log(error);
+        dispatch({ type: "UPDATE_FAILURE" });
       }
     }
   };
