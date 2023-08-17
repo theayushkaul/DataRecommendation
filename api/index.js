@@ -44,7 +44,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 
-app.listen(5000, () => {
-  console.log(`Server is running on port 5000`);
+app.listen(5001, () => {
+  console.log(`Server is running on port 5001`);
 });
 
