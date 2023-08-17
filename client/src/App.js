@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { Context } from "./Context/context";
 import Profile from './Components/Settings/Profile';
 import UploadPage from './Components/UploadPage';
+import VisulaizePage from './Components/VisulaizePage';
 const App = () => {
   const {user} = useContext(Context)
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/prediction" exact element={user ? <Prediction /> : <Login />} />
         <Route path="/profile" exact element={user ? <Profile/> : <Login />} />
         <Route path="/uploadExcel" exact element={user ? <UploadPage/> : <Login />} />
+        <Route path="/visualizeExcel" exact element={user ? <VisulaizePage/> : <Login />} />
       </Routes>
 
     </BrowserRouter>

@@ -40,7 +40,7 @@ const Home = () => {
           with ease
         </div>
       </div>
-      <div className='flex flex-col mx-[25%] mt-[80px] w-[55vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
+      <Link to="/visualizeExcel"><div className='flex flex-col mx-[25%] mt-[80px] w-[55vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
         <div className='flex flex-col p-4'>
           <span className='text-[28px] font-medium goblin'>Visualize</span>
           <span className='text-[12px] atiFont'>Unlock critical insights with data</span>
@@ -48,7 +48,7 @@ const Home = () => {
         <div className='pl-5'>
           <img src={visualize} className='w-[800px] h-[200px] rounded-[10px]' alt="" />
         </div>
-      </div>
+      </div></Link>
       <div className='flex flex-row mx-[25%] w-[55vw]'>
       <div className='flex flex-col  mt-[50px] w-[28vw] h-[50vh] bg-[#E0ECC4] rounded-[20px]'>
           <div className='flex flex-col p-4'>

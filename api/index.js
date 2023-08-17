@@ -1,6 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-
+app.use(cors());
 const path = require('path');
 const multer = require('multer');
 const dotenv = require("dotenv");
@@ -25,7 +26,11 @@ const storage = multer.diskStorage({
     cb(null, 'dataset');
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const timestamp = req.body.name.split('_')[0];
+    const originalName = path.parse(file.originalname).name;
+    const extension = path.parse(file.originalname).ext;
+    const newFilename = `${timestamp}_${originalName}${extension}`;
+    cb(null, newFilename);
   },
 });
 

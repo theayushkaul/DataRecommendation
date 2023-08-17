@@ -34,7 +34,8 @@ function UploadPage() {
     if (file) {
       dispatch({ type: "UPDATE_START" });
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      const timestamp = Date.now(); // Generate the timestamp
+      const filename = `${timestamp}_${file.name}`; // Combine timestamp and original filename
       data.append('name', filename);
       data.append('file', file);
       const config = {
@@ -54,6 +55,7 @@ function UploadPage() {
       }
     }
   };
+  
 
   return (
     <div>
